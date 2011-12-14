@@ -21,7 +21,6 @@ public class WriteReviewTask extends RestClientTask {
 		restClient.addParam("spot_id", mSpotId);
 
 		restClient.put("/review");
-
 		return getResult();
 	}
 }
