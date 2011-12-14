@@ -25,7 +25,7 @@ public class Home extends NgonActivity implements LocationListener {
 		
 		tvLocation = (TextView) findViewById(R.id.location);
 		
-		startActivity(new Intent(this, Register.class));
+		startActivity(new Intent(this, Checkin.class));
 	}
 	
 	@Override public void onLocationChanged(Location location) {

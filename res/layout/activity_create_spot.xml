@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/spot_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/spot_address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address" />
+
+    <EditText
+        android:id="@+id/spot_location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:hint="Location" />
+
+    <Button
+        android:id="@+id/create_spot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Create" />
+
+</LinearLayout>

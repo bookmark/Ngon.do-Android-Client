@@ -49,6 +49,18 @@ public class NgonRestClient {
 		params.add(new BasicNameValuePair(name, value));
 	}
 	
+	public void addParam(String name, double value) {
+		params.add(new BasicNameValuePair(name, value + ""));
+	}
+	
+	public void addParam(String name, int value) {
+		params.add(new BasicNameValuePair(name, value + ""));
+	}
+	
+	public void addParam(String name, float value) {
+		params.add(new BasicNameValuePair(name, value + ""));
+	}
+	
 	public void get(String url) {
 		url = buildApiUrl(url);
 		try {

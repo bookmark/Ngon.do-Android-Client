@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/write_review"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write review ..."
+        android:maxLength="140"
+        android:minLines="5" />
+
+    <Button
+        android:id="@+id/upload_photo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Photo" />
+
+    <Button
+        android:id="@+id/checkin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Checkin" />
+
+</LinearLayout>

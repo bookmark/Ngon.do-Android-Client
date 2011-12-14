@@ -18,14 +18,23 @@
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
-            android:name=".ui.Home" >
+            android:name=".ui.Index" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Register"></activity>
+        <activity android:name=".ui.Register" >
+        </activity>
+        <activity android:name=".ui.CreateSpot" >
+        </activity>
+        <activity
+            android:name=".ui.Checkin"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".ui.Home" >
+        </activity>
     </application>
 
 </manifest>
