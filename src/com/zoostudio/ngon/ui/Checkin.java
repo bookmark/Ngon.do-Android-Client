@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.zoostudio.ngon.NgonActivity;
 import com.zoostudio.ngon.R;
-import com.zoostudio.ngon.task.WriteReviewTask;
+import com.zoostudio.ngon.task.CreateReviewTask;
 import com.zoostudio.restclient.NgonRestClient;
 import com.zoostudio.restclient.RestClientTask.OnPostExecuteDelegate;
 
@@ -72,7 +72,7 @@ public class Checkin extends NgonActivity implements OnClickListener {
 			if (etWriteReview.getText().length() > 0) {
 				String review = etWriteReview.getText().toString();
 
-				WriteReviewTask reviewTask = new WriteReviewTask(spot_id,
+				CreateReviewTask reviewTask = new CreateReviewTask(spot_id,
 						review);
 
 				reviewTask
