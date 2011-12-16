@@ -9,19 +9,19 @@ public class GetNearbySpotTask extends RestClientTask {
 	private double	mLong;
 	private double	mLat;
 	
-	public GetNearbySpotTask() {
-		this(0);
+	public GetNearbySpotTask(double latitude, double longitude) {
+		this(latitude, longitude, 0);
 	}
 	
-	public GetNearbySpotTask(int limit) {
-		this(limit, 2);
+	public GetNearbySpotTask(double latitude, double longitude, int limit) {
+		this(latitude, longitude, limit, 2);
 	}
 	
-	public GetNearbySpotTask(int limit, int accuracy_level) {
+	public GetNearbySpotTask(double latitude, double longitude, int limit, int accuracy_level) {
 		mLimit = limit;
 		mAccLvl = accuracy_level;
-		mLong = (double) 0;
-		mLat = (double) 0;
+		mLong = longitude;
+		mLat = latitude;
 	}
 	
 	@Override public void doExecute() {
@@ -32,7 +32,7 @@ public class GetNearbySpotTask extends RestClientTask {
 			restClient.addParam("limit", mLimit);
 		}
 		
-		if(mAccLvl >0){
+		if (mAccLvl > 0) {
 			restClient.addParam("max_distance", mAccLvl);
 		}
 		
