@@ -3,7 +3,7 @@ package org.bookmark.helper;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Encrypt {
+public class EncryptCore {
 
     public static String md5Encode(final String input) {
         try {

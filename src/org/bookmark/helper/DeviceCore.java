@@ -18,7 +18,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
 
-public class Device {
+public class DeviceCore {
 
     /**
      * Check Internet connection status

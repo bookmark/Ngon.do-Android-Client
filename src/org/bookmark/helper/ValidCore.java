@@ -9,7 +9,7 @@ package org.bookmark.helper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class Valid {
+public final class ValidCore {
 
     /**
      * Validate email, commonly used characters only

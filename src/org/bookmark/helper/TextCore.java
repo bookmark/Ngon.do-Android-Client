@@ -3,7 +3,7 @@ package org.bookmark.helper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Text {
+public class TextCore {
 
     public final static int TYPE_ALNUM    = 0;
 
@@ -36,7 +36,7 @@ public class Text {
     }
 
     public static String random(final int type, final int length) {
-        final String char_lib = Text.getCharList(type);
+        final String char_lib = TextCore.getCharList(type);
         String output = null;
         final int num = char_lib.length();
 

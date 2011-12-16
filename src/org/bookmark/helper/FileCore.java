@@ -7,10 +7,10 @@ import java.io.InputStream;
 import android.content.Context;
 import android.os.Environment;
 
-public class File {
+public class FileCore {
     public static boolean hasExist(final Context ctx, String file_path) {
         file_path = Environment.getExternalStorageDirectory() + file_path + ".bee";
-        if (!Device.checkSdCard()) return false;
+        if (!DeviceCore.checkSdCard()) return false;
 
         final java.io.File file = new java.io.File(file_path);
         if (file.exists()) return true;
