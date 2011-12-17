@@ -1,24 +1,27 @@
 package com.zoostudio.ngon.task;
 
+import java.io.File;
+
 import com.zoostudio.restclient.RestClientTask;
 
-public class CheckinTask extends RestClientTask {
+public class UploadPhotoTask extends RestClientTask {
 	
 	private int	  mSpotId;
 	private int[]	mDishesId;
+	private File	mPhoto;
 	
-	public CheckinTask(int spot_id) {
-		this(spot_id, new int[] {});
+	public UploadPhotoTask(int spot_id, File photo) {
+		this(spot_id, photo, new int[] {});
 	}
 	
-	public CheckinTask(int spot_id, int[] dishes_id) {
+	public UploadPhotoTask(int spot_id, File photo, int[] dishes) {
 		mSpotId = spot_id;
-		mDishesId = dishes_id;
+		mPhoto = photo;
+		mDishesId = dishes;
 	}
 	
 	@Override public void doExecute() {
 		restClient.addParam("spot_id", mSpotId);
-		
 		if (mDishesId.length > 0) {
 			String dishes = "";
 			
@@ -31,7 +34,7 @@ public class CheckinTask extends RestClientTask {
 			restClient.addParam("dishes", dishes);
 		}
 		
-		restClient.put("/spot/checkin");
+		restClient.postMultiPart("/photo", "photo", mPhoto);
 	}
 	
 }

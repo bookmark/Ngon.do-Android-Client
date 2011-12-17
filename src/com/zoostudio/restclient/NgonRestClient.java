@@ -1,6 +1,7 @@
 package com.zoostudio.restclient;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,6 +19,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpConnectionParams;
@@ -79,6 +85,31 @@ public class NgonRestClient {
 		try {
 			request = (HttpPost) addHeaderParams(request);
 			request = (HttpPost) addBodyParams(request);
+			executeRequest(request, url);
+			params.removeAll(params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void postMultiPart(String url, String paramName, File file) {
+		url = buildApiUrl(url);
+		HttpPost request = new HttpPost(url);
+		try {
+			request = (HttpPost) addHeaderParams(request);
+			MultipartEntity reqEntity = new MultipartEntity(
+			        HttpMultipartMode.BROWSER_COMPATIBLE);
+			
+			ContentBody contentBody = new FileBody(file);
+			
+			reqEntity.addPart(paramName, contentBody);
+			if (params != null) {
+				for (NameValuePair param : params) {
+					reqEntity.addPart(param.getName(), new StringBody(param.getValue()));
+				}
+			}
+			
+			request.setEntity(reqEntity);
 			executeRequest(request, url);
 			params.removeAll(params);
 		} catch (Exception e) {
